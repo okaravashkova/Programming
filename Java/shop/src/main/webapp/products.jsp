@@ -1,15 +1,20 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.cigshop.model.Product" %>
 
-<h1>Products</h1>
-
 <%
-    List<Product> products = (List<Product>) request.getAttribute("products");
+List<Product> products = (List<Product>) request.getAttribute("products");
+
+if (products != null) {
     for (Product p : products) {
 %>
-    <div>
-        <p><%= p.getName() %> - <%= p.getPrice() %></p>
-    </div>
+        <div>
+            <p><%= p.getName() %> - <%= p.getPrice() %></p>
+        </div>
 <%
     }
+} else {
+%>
+    <p>Нет данных</p>
+<%
+}
 %>
