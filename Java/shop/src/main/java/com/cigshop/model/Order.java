@@ -1,19 +1,16 @@
 package com.cigshop.model;
 
+import java.sql.Timestamp;
+import java.util.List;
+
 public class Order {
     private int id;
-    private User user;
-    private CartItem[] items;
+    private int userId;
+    private Timestamp createdAt;
     private double total;
+    private List<OrderItem> items;
 
     public Order() {
-    }
-
-    public Order(int id, User user, CartItem[] items, double total) {
-        this.id = id;
-        this.user = user;
-        this.items = items;
-        this.total = total;
     }
 
     public int getId() {
@@ -24,20 +21,20 @@ public class Order {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public CartItem[] getItems() {
-        return items;
+    public Timestamp getCreatedAt() {
+        return createdAt;
     }
 
-    public void setItems(CartItem[] items) {
-        this.items = items;
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     public double getTotal() {
@@ -46,5 +43,13 @@ public class Order {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 }

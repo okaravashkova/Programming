@@ -1,0 +1,19 @@
+# Maven build output
+Java/shop/target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+.~lock.*
+
+# Временные файлы LibreOffice/Word
+~$*

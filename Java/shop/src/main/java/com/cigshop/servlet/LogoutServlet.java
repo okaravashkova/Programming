@@ -7,12 +7,13 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/test")
-public class TestServlet extends HttpServlet {
+@WebServlet("/logout")
+public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        response.getWriter().println("It works!");
+        request.getSession().invalidate();
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }

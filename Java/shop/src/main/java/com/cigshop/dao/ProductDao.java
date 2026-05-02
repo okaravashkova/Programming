@@ -1,35 +1,68 @@
 package com.cigshop.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import com.cigshop.model.Product;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cigshop.model.Product;
-
-public class ProductDao {
+public class ProductDao extends BaseDao {
 
     public List<Product> getAllProducts() {
-    List<Product> products = new ArrayList<>();
-
-    try {
-        Connection conn = DB.getConnection();
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM products");
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            products.add(new Product(
-                rs.getInt("id"),
-                rs.getString("name"),
-                rs.getDouble("price")
-            ));
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM products";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                products.add(mapRow(rs));
+            }
+        } catch (SQLException e) {
+            System.err.println("Ошибка получения товаров: " + e.getMessage());
         }
-
-    } catch (Exception e) {
-        e.printStackTrace();
+        return products;
     }
 
-    return products;
-}
+    public List<Product> getByCategory(int categoryId) {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE category_id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, categoryId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    products.add(mapRow(rs));
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Ошибка получения товаров по категории: " + e.getMessage());
+        }
+        return products;
+    }
+
+    public Product getById(int id) {
+        String sql = "SELECT * FROM products WHERE id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return mapRow(rs);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Ошибка получения товара: " + e.getMessage());
+        }
+        return null;
+    }
+
+    private Product mapRow(ResultSet rs) throws SQLException {
+        Product p = new Product();
+        p.setId(rs.getInt("id"));
+        p.setName(rs.getString("name"));
+        p.setDescription(rs.getString("description"));
+        p.setPrice(rs.getDouble("price"));
+        p.setCategoryId(rs.getInt("category_id"));
+        return p;
+    }
 }

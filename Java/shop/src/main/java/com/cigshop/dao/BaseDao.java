@@ -17,8 +17,8 @@ public abstract class BaseDao {
         "useSSL=false&" +
         "allowPublicKeyRetrieval=true&" +
         "serverTimezone=UTC",
-        "root", 
-        ""
+        "shopuser",
+        "shoppass"
     );
     }
 }

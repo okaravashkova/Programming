@@ -9,32 +9,32 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/products")
-public class ProductServlet extends HttpServlet {
+@WebServlet("/product")
+public class ProductDetailServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
 
-        ProductDao dao = new ProductDao();
-        List<Product> products;
-
-        String categoryIdParam = request.getParameter("categoryId");
-        if (categoryIdParam != null && !categoryIdParam.isEmpty()) {
-            products = dao.getByCategory(Integer.parseInt(categoryIdParam));
-            request.setAttribute("selectedCategory", Integer.parseInt(categoryIdParam));
-        } else {
-            products = dao.getAllProducts();
+        String idParam = request.getParameter("id");
+        if (idParam == null) {
+            response.sendRedirect(request.getContextPath() + "/products");
+            return;
         }
 
-        request.setAttribute("products", products);
-        request.getRequestDispatcher("/products.jsp").forward(request, response);
+        ProductDao dao = new ProductDao();
+        Product product = dao.getById(Integer.parseInt(idParam));
+        if (product == null) {
+            response.sendRedirect(request.getContextPath() + "/products");
+            return;
+        }
+
+        request.setAttribute("product", product);
+        request.getRequestDispatcher("/product.jsp").forward(request, response);
     }
 }

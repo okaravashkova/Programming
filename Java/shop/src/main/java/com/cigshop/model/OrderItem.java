@@ -1,15 +1,27 @@
 package com.cigshop.model;
 
 public class OrderItem {
+    private int id;
     private Product product;
     private int quantity;
+    private double price;
 
     public OrderItem() {
     }
 
-    public OrderItem(Product product, int quantity) {
+    public OrderItem(int id, Product product, int quantity, double price) {
+        this.id = id;
         this.product = product;
         this.quantity = quantity;
+        this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Product getProduct() {
@@ -27,5 +39,16 @@ public class OrderItem {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getSubtotal() {
+        return price * quantity;
+    }
 }
