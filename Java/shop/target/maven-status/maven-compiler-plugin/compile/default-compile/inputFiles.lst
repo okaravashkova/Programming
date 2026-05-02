@@ -2,6 +2,8 @@
 /home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/model/Product.java
 /home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/model/OrderItem.java
 /home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/model/User.java
+/home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/servlet/ProductServlet.java
+/home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/servlet/TestServlet.java
 /home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/dao/ProductDao.java
 /home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/dao/BaseDao.java
 /home/qrewetka/Документы/Programming/Java/shop/src/main/java/com/cigshop/dao/TestConnectionSQL.java

@@ -1,16 +1,16 @@
 package com.cigshop.model;
 public class User {
     private int id;
-    private String username;
+    private String login;
     private String password;
     private String email;
 
     public User() {
     }
 
-    public User(int id, String username, String password, String email) {
+    public User(int id, String login, String password, String email) {
         this.id = id;
-        this.username = username;
+        this.login = login;
         this.password = password;
         this.email = email;
     }
@@ -23,12 +23,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {

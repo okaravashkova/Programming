@@ -7,7 +7,7 @@ public abstract class BaseDao {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException("MySQL Driver не найден!", e);
+            throw new RuntimeException("!", e);
         }
     }
     
@@ -18,7 +18,7 @@ public abstract class BaseDao {
         "allowPublicKeyRetrieval=true&" +
         "serverTimezone=UTC",
         "root", 
-        "12345678"
+        ""
     );
     }
 }

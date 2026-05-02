@@ -8,7 +8,7 @@
 </head>
     <body>
         <h2>Магазин сигарет и табачных изделий</h2>
-        <a href="listjsp.jsp">Товары</a>
+        <a href="products">Товары</a>
         <img src="smoking.jpg" alt="Котёнок курит сижку">
     </body>
 </html>
