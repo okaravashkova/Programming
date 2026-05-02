@@ -1,133 +1,214 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    background-color: #e8f4e8;
+    font-family: Times New Roman, serif;
+    color: #222222;
+    margin: 10px;
+}
+
+h1 {
+    color: #006600;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+h2 {
     color: #333;
+    margin-bottom: 10px;
 }
 
 nav {
-    background: #2c2c2c;
-    padding: 12px 24px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+    background-color: #ccffcc;
+    border: 2px solid #006600;
+    padding: 8px 12px;
+    margin-bottom: 18px;
 }
+
 nav a {
-    color: #ddd;
-    text-decoration: none;
-    font-size: 14px;
+    color: #004400;
+    margin-right: 16px;
+    font-size: 15px;
 }
-nav a:hover { color: #fff; }
+
+nav a:hover {
+    color: red;
+}
+
 nav .nav-user {
-    margin-left: auto;
-    color: #aaa;
+    float: right;
     font-size: 13px;
+    color: #555;
 }
 
 .container {
-    max-width: 960px;
-    margin: 30px auto;
-    padding: 0 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
 }
-
-h1 { margin-bottom: 20px; font-size: 24px; }
-h2 { margin-bottom: 16px; font-size: 20px; }
 
 .error {
-    background: #ffe0e0;
-    border: 1px solid #f88;
-    color: #900;
-    padding: 10px 14px;
-    border-radius: 4px;
-    margin-bottom: 16px;
+    background-color: #ffcccc;
+    border: 1px solid red;
+    color: red;
+    padding: 8px;
+    margin-bottom: 12px;
 }
+
 .success {
-    background: #e0ffe0;
-    border: 1px solid #8f8;
-    color: #060;
-    padding: 10px 14px;
-    border-radius: 4px;
-    margin-bottom: 16px;
+    background-color: #ccffcc;
+    border: 1px solid green;
+    color: green;
+    padding: 8px;
+    margin-bottom: 12px;
 }
 
 /* Forms */
 .form-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 28px 32px;
-    max-width: 400px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
+    padding: 20px;
+    width: 320px;
 }
-.form-group { margin-bottom: 16px; }
-.form-group label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: bold; }
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
 .form-group input {
     width: 100%;
-    padding: 9px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid #aaaaaa;
     font-size: 14px;
 }
+
 .btn {
     display: inline-block;
-    padding: 10px 22px;
-    background: #2c2c2c;
-    color: #fff;
+    padding: 6px 16px;
+    background-color: #009900;
+    color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     text-decoration: none;
 }
-.btn:hover { background: #444; }
-.btn-danger { background: #c0392b; }
-.btn-danger:hover { background: #a93226; }
-.btn-sm { padding: 6px 14px; font-size: 13px; }
-.form-link { margin-top: 14px; font-size: 13px; }
-.form-link a { color: #444; }
+
+.btn:hover {
+    background-color: #007700;
+}
+
+.btn-danger {
+    background-color: #cc0000;
+}
+
+.btn-danger:hover {
+    background-color: #aa0000;
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 13px;
+}
+
+.form-link {
+    margin-top: 10px;
+    font-size: 13px;
+}
 
 /* Product grid */
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
+
 .product-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 18px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
+    padding: 12px;
+    width: 200px;
 }
-.product-card h3 { font-size: 16px; margin-bottom: 8px; }
-.product-card .price { font-size: 18px; font-weight: bold; color: #2c2c2c; margin-bottom: 12px; }
-.product-card .desc { font-size: 13px; color: #666; margin-bottom: 12px; }
+
+.product-card h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #004400;
+}
+
+.product-card .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #cc0000;
+    margin-bottom: 8px;
+}
+
+.product-card .desc {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 8px;
+}
 
 /* Categories */
-.category-list { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
-.category-list li a {
-    display: block;
-    padding: 12px 20px;
-    background: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #333;
-    box-shadow: 0 2px 5px rgba(0,0,0,.08);
-    font-size: 15px;
+.category-list {
+    list-style: disc;
+    padding-left: 20px;
 }
-.category-list li a:hover { background: #2c2c2c; color: #fff; }
 
-/* Cart / Orders table */
-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
-th { background: #2c2c2c; color: #fff; padding: 12px 14px; text-align: left; font-size: 14px; }
-td { padding: 11px 14px; border-bottom: 1px solid #eee; font-size: 14px; }
-tr:last-child td { border-bottom: none; }
-.total-row td { font-weight: bold; background: #f9f9f9; }
+.category-list li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.category-list li a {
+    color: #004499;
+}
+
+.category-list li a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+th {
+    background-color: #006600;
+    color: white;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #004400;
+}
+
+td {
+    padding: 7px 8px;
+    border: 1px solid #aaaaaa;
+    font-size: 14px;
+}
+
+.total-row td {
+    font-weight: bold;
+    background-color: #e8f4e8;
+}
 
 .order-block {
-    background: #fff;
-    border-radius: 8px;
-    padding: 18px 22px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
+    padding: 12px;
+    margin-bottom: 16px;
 }
-.order-block h3 { font-size: 15px; color: #555; margin-bottom: 12px; }
+
+.order-block h3 {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 10px;
+}
