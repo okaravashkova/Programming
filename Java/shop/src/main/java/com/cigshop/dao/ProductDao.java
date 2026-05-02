@@ -8,15 +8,14 @@ import java.util.List;
 
 import com.cigshop.model.Product;
 
-import ch.qos.logback.classic.db.DBHelper;
-
 public class ProductDao {
+
     public List<Product> getAllProducts() {
     List<Product> products = new ArrayList<>();
 
     try {
-        Connection conn = DBHelper.getConnectionSource().getConnection();
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM shop");
+        Connection conn = DB.getConnection();
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM products");
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
